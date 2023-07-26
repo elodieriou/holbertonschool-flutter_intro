@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'episodes_screen.dart';
 import 'models.dart';
 
 class CharacterTile extends StatelessWidget {
@@ -16,9 +17,19 @@ class CharacterTile extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
       ),
-      child: Image.network(
-        character.img,
-        fit: BoxFit.cover,
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => EpisodesScreen(id: character.id),
+            ),
+          );
+        },
+        child: Image.network(
+          character.img,
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }
